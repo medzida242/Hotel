@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pretraga</title>
+
+    <link rel="stylesheet" href="{% static 'search.css' %}">
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+
+
+    <link rel="icon" href="{% static 'media/logo.jpg' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="background-container">
+        <div class="background-image"></div>
+        <div class="background-layer"></div>
+    <div class="navbar" id="navbar">
+        <a href="index" >Početna</a>
+        <a href="search" class="active">Pretraga</a>
+        <a href="login">Log in</a>
+        <a href="{%static 'javascript:void(0)'%}" class="icon" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i> 
+        </a>
+    </div>
+
+    <div class="pretragaime">
+        <h1>Pretražite hotel po imenu:</h1> <br>
+
+        <form method="GET" action="{% url 'hotel:search' %}">
+            <input type="text" name="ime_query" placeholder="Ime hotela" value="{{ ime_query }}">
+            <button type="submit">Pretraga</button>
+        </form>
+        
+        <div id="ime-rezultati-pretrazivanja">
+            {% if ime_rezultat %}
+                {% for hotel in ime_rezultat %}
+                    <div class="rezultat">
+                        <a href="{% url 'hotel:hotel_details' hotel.id %}">
+                            <div class="image-frame">
+                                <img src="{{ hotel.picture.url }}" alt="{{ hotel.ime }}">
+                            </div>
+                            <h2>{{ hotel.ime }}</h2>
+                            <p>{{ hotel.zvjezdice }}  {{hotel.mjesto}}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Nema hotela sa ovim imenom .</p>
+            {% endif %}
+        </div>
+    
+    </div>
+    
+    <div class="pretragamjesto">
+        <h1>Pretražite hotel po mjestu:</h1>
+
+        <form method="GET" action="{% url 'hotel:search' %}">
+            <input type="text" name="mjesto_query" placeholder="ime mjesta" value="{{ mjesto_query }}">
+            <button type="submit">Pretraga</button>
+        </form>
+        
+        <div id="mjesto-rezultati-pretrazivanja">
+            {% if mjesto_rezultat %}
+                {% for hotel in mjesto_rezultat %}
+                <div class="rezultat">
+                    <a href="{% url 'hotel:hotel_details' hotel.id %}">
+
+                        <div class="image-frame">
+                            <img src="{{ hotel.picture.url }}" alt="{{ hotel.ime }}">
+                        </div>
+                        <h2>{{ hotel.ime }}</h2>
+                        <p>{{ hotel.zvjezdice }}  {{ hotel.mjesto }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Nema hotela u ovom mjestu</p>
+            {% endif %}
+        </div>
+    </div>
+
+    
+</div>   
+    <div class="footer">
+        <p> &#169; 2023 HotelFinder </p>
+    </div>
+
+    <script src="{% static 'search.js' %}"></script>
+
+</body>
+</html>

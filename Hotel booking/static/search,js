@@ -1,0 +1,33 @@
+document.getElementById('search-button').addEventListener('click', search);
+
+function search() {
+  var searchInput = document.getElementById('search-input').value;
+  
+  // Make an AJAX request to your Django backend to perform the search
+  // and get the results
+
+  // Example AJAX request using jQuery:
+  $.ajax({
+    url: '/search/',
+    type: 'GET',
+    data: { query: searchInput },
+    success: function(response) {
+      displayResults(response);
+    },
+    error: function(xhr, status, error) {
+      console.error(error);
+    }
+  });
+}
+
+function displayResults(results) {
+  var searchResultsContainer = document.getElementById('search-results');
+  searchResultsContainer.innerHTML = '';
+
+  // Loop through the results and create HTML elements to display them
+  for (var i = 0; i < results.length; i++) {
+    var resultItem = document.createElement('div');
+    resultItem.textContent = results[i].name;
+    searchResultsContainer.appendChild(resultItem);
+  }
+}

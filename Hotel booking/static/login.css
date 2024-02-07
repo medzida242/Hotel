@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #000000;
+    min-height: 100vh;
+    /*overflow: hidden;*/
+    margin: 0;
+    padding: 0;
+    background-color:  #596e79;
+  }
+
+  .centered {
+    text-align: center;
+    color: #d4d4d4;
+    margin-top: 50px;
+
+  }
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 80px;
+ 
+  }
+  
+  p {
+    color: #f7f7f7;
+    text-align: center;
+   
+    }
+.fieldset{
+    border:none;
+}
+    .container {
+        margin-top:100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+      }
+      
+      .form-container {
+        display: flex;
+        justify-content: space-between;
+        width: 800px;
+        border:none;
+      }
+      
+      .form-content {
+        margin:15px;
+        width: 350px;
+        background-color: #ffffff;
+        padding: 60px;
+        border:none;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      }
+      
+      .form-content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+      
+      .form-content label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      .form-content input[type="email"],
+      .form-content input[type="text"],
+      .form-content input[type="password"] {
+        font-family: inherit;
+        width: 100%;
+        outline: none;
+        background-color: #f7f7f7;
+        border-radius: 4px;
+        border: none;
+        display: block;
+        padding: 10px;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        font-size: 17px;
+        color: #4A4A4A;
+      }
+      
+      .form-content input[type="submit"] {
+        outline: none;
+        border-radius: 2px;
+        border-color: #ffffff;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
+        background-color: #5585b5;
+        color: white;
+        border-radius: 4px;
+
+        /*height:30px;
+        padding:5px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        margin-left: 10px;
+       */
+      
+    

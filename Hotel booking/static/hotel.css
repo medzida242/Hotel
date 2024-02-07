@@ -1,0 +1,95 @@
+body{
+    background-color: #596e79;
+}
+.container {
+    display: flex;
+  }
+  
+  .image {
+    flex: 1;
+    margin:40px;
+  }
+  
+  .image img {
+    width: 750px;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .details {
+    flex: 1;
+    margin-top: 40px;
+  }
+  
+  .details h2 {
+    margin-left:85px;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        color: #f0f3bd;
+        font-size: 47px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .details p {
+    margin-left:15px;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: #f0f3bd;
+    font-size: 23px;
+  }
+  .tekst{
+    font-size: 15px;
+    font-weight: bold;
+    color:white; 
+    /* Add other styles as desired */
+    margin-bottom: 20px;
+  }
+  .comment-section {
+    margin:5px;
+  }
+  
+  .comment-section textarea {
+    margin:15px;
+    margin-bottom:0px;
+    width: 400px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .comment-submit {
+    height:30px;
+    background-color: #5585b5;
+    color: white;
+    padding:5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .comment-submit:hover {
+    background-color: #407088;
+  }
+  .btn {
+    display: inline-block;
+  width:100px;
+  background-color: white;
+  color:  #407088;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+  
+  

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Finder</title>
+
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+    <link rel="icon" href="{% static 'media/logo.jpg' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+    <div class="container">
+
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="{% static 'novivid.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="navbar" id="navbar">
+            <a href="#"  class="active">Početna</a>
+            <a href="search">Pretraga</a>
+            <a href="login">Log in</a>
+            <a href="{%static 'javascript:void(0)'%}" class="icon" onclick="toggleNavbar()">
+                <i class="fa fa-bars"></i> 
+            </a>
+        </div>
+
+        <div class="content">
+            <h1>Pronađite pravi hotel za Vas <br>
+            Jednostavno nalaženje, jednostavna rezervacija</h1>
+            <a class="start-btn" href="search">ZAPOČNITE</a>
+        </div>
+
+        <div class="footer">
+            <p> &#169; 2023 HotelFinder </p>
+        </div>
+
+    </div>
+
+    <script src="../javascript/functions.js"></script>
+
+    <script>
+        function toggleNavbar(){
+            let navbar = document.querySelector('#navbar');
+            if(navbar.className === 'navbar'){
+                navbar.className += ' responsive';
+                console.log('added')
+            }else{
+                navbar.className = 'navbar';
+            }
+        }
+    </script>
+
+</body>
+</html>

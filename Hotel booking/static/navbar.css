@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    /* overflow: hidden; */
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3));
+    border-bottom: 1px solid #f0f3bd;
+    /* padding-left: 50px; */
+}
+
+
+
+.navbar a {
+    text-decoration: none;
+    color: #f0f3bd;
+    font-size: 20px;
+    font-weight: 700;
+    transition: 0.5s ease-in-out;
+    margin-left: 50px;
+}
+
+.navbar a.active {
+    color: #AEC2B6;
+    font-size: 23px;
+}
+
+.navbar a:hover{
+    color: #AEC2B6;
+    font-size: 23px;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        height: 10vh;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navbar a.icon {
+        display: block;
+        position: relative;
+        margin-left: auto;
+        margin-right: 50px;
+    }
+}
+  
+
+@media screen and (max-width: 600px){
+    .navbar.responsive {
+        display: block;
+        position: relative;
+        height: auto;
+        padding-top: 20px;
+    }
+    .navbar.responsive a{
+        display: block;
+        text-align: left;
+        margin-left: 10px;
+        padding: 10px;
+    }
+    .navbar.responsive a:hover{
+        font-size: 20px;
+    }
+    .navbar a.active {
+        font-size: 20px;
+    }
+    .navbar.responsive .icon{
+        position: absolute;
+        right: 0;
+        top: 20px;
+    }
+}

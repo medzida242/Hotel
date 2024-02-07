@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ hotel.ime }} Hotel</title>
+
+    <link rel="stylesheet" href="{% static 'hotel.css' %}">
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <a href="index" >Početna</a>
+        <a href="search" >Pretraga</a>
+        <a href="login">Log in</a>
+        <a href="{%static 'javascript:void(0)'%}" class="icon" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i> 
+        </a>
+    </div>
+    
+    {% block content %}
+    <div class="container">
+      <div class="image">
+        <img src="{{ hotel.picture.url }}" alt="{{ hotel.ime }}">
+      </div>
+      <div class="details">
+        <h2>{{ hotel.ime }}</h2>
+        <p>Zvjezdice: {{ hotel.zvjezdice }} // Mjesto: {{ hotel.mjesto }}</p>
+
+        <form method="post" action="{% url 'hotel:add_comment' hotel.id %}">
+
+
+            {% csrf_token %}
+            
+            <div class="comment-section">
+              <textarea name="content" placeholder="Napišite recenziju"></textarea>
+              <button class="comment-submit" type="submit">Objavi</button>
+            </div>
+          
+        {% for comment in comments %}
+        <div class="tekst">
+        <div class="comment">
+            <h3>Comment ID: {{ comment.id }}<br>
+            {{ comment.content }}  //  By: {{ comment.user }}</h3>
+         </div>
+        {% empty %}
+             <p>Hotel još uvijek nema recenzije.</p>
+        {% endfor %}
+        </div>   
+          </form>
+        {% if user.is_staff %}
+          <form action="delete_comment" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        {% endif %}
+
+      </div>
+
+    </div>
+    {% endblock %}
+
+    
+    <script>
+        // Add your JavaScript code here
+    </script>
+</body>
+</html>
